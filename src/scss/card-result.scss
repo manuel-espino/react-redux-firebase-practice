@@ -1,0 +1,80 @@
+@import './variables.scss';
+
+.card-result {
+   display: flex;
+   justify-content: space-between;
+   height: 5rem;
+   width: 20rem;
+
+   &__image {
+      flex: 0 1 5rem;
+      height: auto;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 8px 0 0 8px;
+      position: relative;
+
+      img {
+         width: 100%;
+         height: auto;
+         position: absolute;
+         top: 10%;
+         left: 50%;
+         transform: translate(-50%, -10%);
+      }
+   }
+
+   &__data-wrapper {
+      display: flex;
+      flex: 1 30 auto;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin: 0;
+      text-align: left;
+      overflow: hidden;
+      padding: 0.5rem 0.7rem;
+
+   }
+
+   &__title {
+      margin: 0;
+      font-size: 1.1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+
+   &__data {
+
+      &--life,
+      &--country {
+         margin: 0.2rem 0;
+         padding: 0;
+      }
+
+      &--country {
+         font-weight: 400;
+         font-size: 0.8rem;
+      }
+   }
+
+   &__add {
+      background: none;
+      color: $main_color;
+      font-size: 1.5rem;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 3rem;
+      border: none;
+
+      &:hover {
+         font-weight: bolder;
+         font-size: 1.8rem;
+      }
+
+      &:focus {
+         box-shadow: $hover-box-shadow;
+         outline: none;
+      }
+   }
+}

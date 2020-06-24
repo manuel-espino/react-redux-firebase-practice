@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+.input {
+   border: 1px solid $main_color;
+   border-radius: 3rem;
+   box-shadow: $main-box-shadow;
+   margin: 15px;
+   font-size: 1.3rem;
+   padding: 0.4rem 1rem;
+   width: 350px;
+
+   &:focus {
+      outline: none;
+      box-shadow: $hover-box-shadow;
+   }
+}

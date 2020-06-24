@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+.message {
+   border: 1px solid;
+   border-left-width: 30px;
+   display: inline-block;
+   padding: 0 1rem;
+   margin: 0;
+   border-radius: 12px;
+
+   &--error {
+      color: $danger;
+      border-color: danger;
+   }
+
+   &--loading {
+      color: $warning;
+      border-color: $warning;
+   }
+
+   &--info {
+      color: $info;
+      border-color: $info;
+   }
+}

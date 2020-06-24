@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+.title {
+   color: $main_color;
+
+   &--1 {
+      font-size: 2.5rem;
+   }
+
+   &--2 {
+      font-size: 1.5rem;
+   }
+
+}

@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+.button {
+   border: 1px solid $main_color;
+   border-radius: 3rem;
+   box-shadow: $main-box-shadow;
+   margin: 15px;
+   font-size: 1.3rem;
+   padding: 0.4rem 1rem;
+   background-color: $main_color;
+   color: $white;
+
+   &:hover,
+   &:focus {
+      color: $main_color;
+      background-color: $white;
+      box-shadow: none;
+      outline: none;
+      box-shadow: $hover-box-shadow;
+   }
+
+}
