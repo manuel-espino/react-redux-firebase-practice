@@ -58,23 +58,29 @@
       }
    }
 
-   &__add {
-      background: none;
-      color: $main_color;
-      font-size: 1.5rem;
-      height: 2rem;
-      width: 2rem;
-      border-radius: 3rem;
-      border: none;
+   &--dark {
+      &.card-result {
+         background-color: $main_color;
+         border-radius: 50rem;
 
-      &:hover {
-         font-weight: bolder;
-         font-size: 1.8rem;
-      }
+         border: 0.33rem solid $main_color;
 
-      &:focus {
-         box-shadow: $hover-box-shadow;
-         outline: none;
+         .card-result {
+
+            &__data-wrapper {}
+
+            &__image {
+               border-radius: 5rem;
+            }
+
+            &__data-wrapper {
+               color: $white;
+            }
+         }
       }
+   }
+
+   &--disabled {
+      opacity: 0.4;
    }
 }

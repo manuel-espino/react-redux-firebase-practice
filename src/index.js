@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { render } from 'react-dom';
 import './index.css';
 import App from './App';
@@ -9,15 +9,23 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
 
+//Firebase
+import { FirebaseAppProvider } from 'reactfire';
+import firebaseConfig from './firebase-config';
+
 const store = createStore(rootReducer);
 
 render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Suspense fallback={"Cargando!"}>
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <React.StrictMode>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </React.StrictMode>
+    </FirebaseAppProvider>
+  </Suspense>
+  , document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -1,11 +1,9 @@
-const initialState = {
+const initialState = {};
 
-};
-
-const filmsReducer = (initialState, action) => {
+const filmsReducer = (state = initialState, action) => {
    switch (action.type) {
       default:
-         return null;
+         return state;
    }
 }
 

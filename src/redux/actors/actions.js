@@ -16,7 +16,7 @@ export const addActor = (actor) => ({
    actor: actor
 })
 
-export const removeActor = (id) => ({
+export const removeActor = (actor) => ({
    type: REMOVE_ACTOR,
-   id: id
+   actor: actor
 })

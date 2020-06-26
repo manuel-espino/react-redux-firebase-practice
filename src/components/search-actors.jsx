@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import SimpleSearchForm from '../shared/components/simple-search-form';
 import Message from '../shared/components/message';
-import ResultsActors from './results-actors';
+import ListActors from './lists-actors';
+import { useSelector } from 'react-redux';
+import { actorIsFavourite } from '../redux/actors/utils';
 
 const SearchActors = () => {
+   const favouritesActors = useSelector(state => state.actors.favourites);
 
    const API_URL = "http://api.tvmaze.com/search/people?q=";
    const [results, setResults] = useState(null);
-   const [searchValue, setSearchValue] = useState('prins parma');
+   const [trasformedResults, setTrasformedResults] = useState(null);
+   const [searchValue, setSearchValue] = useState('ana');
    const [response, setResponse] = useState(null)
    const [loading, setLoading] = useState(false);
    const [error, setError] = useState(null);
@@ -48,6 +52,22 @@ const SearchActors = () => {
       return () => clearTimeout(timer)
    }, [searchValue]);
 
+
+   useEffect(() => {
+      let aux = [...results || []];
+      aux = aux?.filter(a => {
+         if (actorIsFavourite(favouritesActors, a.person.id)) {
+            a.favourite = true;
+         } else {
+            a.favourite = false;
+
+         }
+         return a;
+      })
+      setTrasformedResults(aux)
+   }, [results, favouritesActors]);
+
+
    return (
       <div>
          <header>
@@ -58,9 +78,9 @@ const SearchActors = () => {
             <section>
                {loading && <Message type="loading" text="Loading..." />}
                {error && <Message type="error" text={error.message} />}
-               {results ?
-                  (results.length ?
-                     <ResultsActors results={results} />
+               {trasformedResults ?
+                  (trasformedResults.length > 0 ?
+                     <ListActors results={trasformedResults} title="Results" />
                      : <Message type="info" text="Nobody was found." />)
                   : null
                }
@@ -69,6 +89,5 @@ const SearchActors = () => {
       </div >
    )
 }
-
 
 export default SearchActors;
