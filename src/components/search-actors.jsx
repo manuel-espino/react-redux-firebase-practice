@@ -7,7 +7,7 @@ const SearchActors = () => {
 
    const API_URL = "http://api.tvmaze.com/search/people?q=";
    const [results, setResults] = useState(null);
-   const [searchValue, setSearchValue] = useState('prins parma');
+   const [searchValue, setSearchValue] = useState('');
    const [response, setResponse] = useState(null)
    const [loading, setLoading] = useState(false);
    const [error, setError] = useState(null);
